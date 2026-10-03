@@ -1,2 +1,9 @@
-SECRET_KEY: '10ba76ddc4bd16128797d2cbae528072de2c989d5a9d1eb592d9097878cd8255'
+# LOCAL ONLY — gitignored. Structure mirrors config.example.yaml.
+# SECRET_KEY regenerated after the original was exposed in git history.
+SECRET_KEY: '12334b3463fad2fd182a087cecc0dc80703c7ad84716ecb178818ba37fb71d46'
 key: 'thisisadminkey'
+
+DB_HOST: 'localhost'
+DB_USER: 'root'
+DB_PASSWORD: '0000'
+DB_NAME: 'flight_application'

@@ -1,4 +1,3 @@
-
 # Flight Ticket Booking Application
 
 A full-stack flight booking web app with two separate user domains — passengers

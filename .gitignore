@@ -1,0 +1,19 @@
+# Real config with secrets — copy config.example.yaml to config.yaml and fill in.
+helpers/config.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.venv/
+
+# Editor
+.vscode/
+
+# Generated at runtime
+Static/sentiment.png
+
+# OS
+.DS_Store
+Thumbs.db

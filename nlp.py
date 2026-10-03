@@ -1,3 +1,4 @@
+import os
 import mysql.connector
 import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
@@ -5,15 +6,23 @@ import matplotlib
 matplotlib.use('agg')
 import matplotlib.pyplot as plt
 from collections import Counter
+import yaml
+
+# Resolve paths relative to this file so the app runs on any machine.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(BASE_DIR, 'helpers', 'config.yaml'), 'r') as stream:
+    config = yaml.safe_load(stream)
+
 
 class feedback_analytics:
     @staticmethod
     def analyze():
         db = mysql.connector.connect(
-            host='localhost',
-            user='root',
-            password='0000',
-            database='flight_application'
+            host=config['DB_HOST'],
+            user=config['DB_USER'],
+            password=config['DB_PASSWORD'],
+            database=config['DB_NAME']
         )
         cursor = db.cursor()
         cursor.execute('SELECT message FROM feedback')
@@ -54,7 +63,8 @@ class feedback_analytics:
 
         plt.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%')
         plt.axis('equal')
-        pie_chart = "C:\\Users\\suriy\\OneDrive\\Desktop\\Devrev\\Flask sample 2\\Static\\sentiment.png"
+        pie_chart = os.path.join(BASE_DIR, 'Static', 'sentiment.png')
+        os.makedirs(os.path.dirname(pie_chart), exist_ok=True)
         plt.savefig(pie_chart)
         plt.close()
         return pie_chart

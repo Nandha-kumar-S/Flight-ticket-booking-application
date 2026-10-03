@@ -23,10 +23,10 @@ app.secret_key = data['SECRET_KEY']
 
 try:
     db = mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='0000',
-        database='flight_application'
+        host=data['DB_HOST'],
+        user=data['DB_USER'],
+        password=data['DB_PASSWORD'],
+        database=data['DB_NAME']
     )
 except:
     print('Connection failed')
@@ -392,4 +392,3 @@ def admin_logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    app = Flask(static_folder="C:\\Users\\suriy\\OneDrive\\Desktop\\Devrev\\Flask sample 2")

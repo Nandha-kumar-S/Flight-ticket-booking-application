@@ -1,0 +1,17 @@
+# Copy this file to config.yaml and fill in real values.
+# config.yaml is gitignored — never commit it.
+#
+#   cp helpers/config.example.yaml helpers/config.yaml
+
+# Signs Flask session cookies. Generate a fresh one with:
+#   python3 -c "import secrets; print(secrets.token_hex(32))"
+SECRET_KEY: 'REPLACE_WITH_RANDOM_HEX_STRING'
+
+# Required to register a new admin account.
+key: 'REPLACE_WITH_ADMIN_REGISTRATION_KEY'
+
+# MySQL connection.
+DB_HOST: 'localhost'
+DB_USER: 'root'
+DB_PASSWORD: 'REPLACE_WITH_MYSQL_PASSWORD'
+DB_NAME: 'flight_application'
